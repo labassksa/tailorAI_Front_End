@@ -1,6 +1,7 @@
 'use client';
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { TrendingUp, DollarSign, Star, ShoppingBag, Sparkles, Package } from "lucide-react";
 import ImageModal from "./components/ImageModal";
 import ThemeSwitcher from "./components/ThemeSwitcher";
 import LanguageSwitcher from "./components/LanguageSwitcher";
@@ -86,12 +87,6 @@ export default function Home() {
     }
   ];
 
-  const features = [
-    { icon: "✨", title: t.showcase.features.aiPowered, description: t.showcase.features.aiPoweredDesc },
-    { icon: "⚡", title: t.showcase.features.fastDelivery, description: t.showcase.features.fastDeliveryDesc },
-    { icon: "🎨", title: t.showcase.features.unlimited, description: t.showcase.features.unlimitedDesc },
-    { icon: "💎", title: t.showcase.features.premium, description: t.showcase.features.premiumDesc }
-  ];
 
   return (
     <div className="min-h-screen bg-theme-background overflow-x-hidden">
@@ -106,9 +101,10 @@ export default function Home() {
             </div>
             <div className="hidden md:block">
               <div className={`${isRTL ? 'mr-10 space-x-reverse' : 'ml-10'} flex items-baseline space-x-4 nav-items`}>
-                <a href="#showcase" className="text-theme-text-light hover:text-theme-primary px-3 py-2 rounded-md text-sm font-medium transition-all hover:scale-105">{t.nav.howItWorks}</a>
+                <a href="#how-it-works" className="text-theme-text-light hover:text-theme-primary px-3 py-2 rounded-md text-sm font-medium transition-all hover:scale-105">{t.nav.howItWorks}</a>
                 <a href="#gallery" className="text-theme-text-light hover:text-theme-primary px-3 py-2 rounded-md text-sm font-medium transition-all hover:scale-105">{t.nav.gallery}</a>
                 <a href="#brands" className="text-theme-text-light hover:text-theme-primary px-3 py-2 rounded-md text-sm font-medium transition-all hover:scale-105">{t.nav.forBrands}</a>
+                <a href="#contact" className="text-theme-text-light hover:text-theme-primary px-3 py-2 rounded-md text-sm font-medium transition-all hover:scale-105">{t.footer.contactUs}</a>
               </div>
             </div>
             <div>
@@ -124,137 +120,163 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-20 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-theme-surface via-theme-background to-theme-surface">
-        {/* Animated background shapes */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-theme-primary rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-blob"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-theme-accent rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-blob animation-delay-2000"></div>
-        </div>
-        
-        <div className="relative max-w-7xl mx-auto">
+      {/* Hero Section - Apple-inspired */}
+      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center">
+            {/* Main Headlines */}
             <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <h1 className={`text-3xl sm:text-5xl lg:text-7xl font-black text-theme-text mb-4 sm:mb-6 leading-tight hero-title ${isRTL ? 'text-center' : 'text-center'}`}>
+              <h1 className={`text-3xl sm:text-5xl lg:text-6xl font-light text-gray-800 mb-1 sm:mb-2 leading-tight tracking-tight hero-title ${isRTL ? 'text-center' : 'text-center'}`}>
                 {t.hero.title1}
-                <br />
-                <span className="bg-gradient-to-r from-theme-primary via-theme-accent to-theme-accent2 bg-clip-text text-transparent animate-gradient bg-300%">{t.hero.title2}</span>
               </h1>
-              <p className={`text-lg sm:text-xl lg:text-2xl text-theme-text mb-6 sm:mb-8 max-w-4xl mx-auto font-light hero-subtitle text-center ${isRTL ? 'leading-relaxed' : ''}`}>
+              <h2 className={`text-xl sm:text-2xl lg:text-3xl font-light text-gray-500 mb-4 sm:mb-6 leading-tight tracking-tight ${isRTL ? 'text-center' : 'text-center'}`}>
+                {t.hero.title2}
+              </h2>
+              
+              {/* Subtitle */}
+              <p className={`text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8 sm:mb-10 max-w-4xl mx-auto font-light leading-normal ${isRTL ? 'leading-relaxed' : ''}`}>
                 {t.hero.subtitle}
               </p>
-              <p className={`text-sm sm:text-base lg:text-lg text-theme-text-light mb-8 sm:mb-12 text-center ${isRTL ? 'leading-relaxed' : ''}`}>
-                {t.hero.process}
-              </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16">
+              {/* CTA Button */}
+              <div className="flex justify-center mb-16 sm:mb-20">
                 <a 
                   href="/design"
-                  className="group relative w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-theme-primary to-theme-accent2 text-white rounded-full text-lg sm:text-xl font-bold transform transition-all hover:scale-105 shadow-2xl hover:shadow-theme-primary/30"
+                  className="bg-theme-primary hover:bg-theme-primary-dark text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-xl"
                 >
-                  <span className="relative z-10">{t.hero.cta}</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-theme-primary-dark to-theme-accent2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  {t.hero.cta}
                 </a>
-                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-theme-border text-theme-text rounded-full text-base sm:text-lg font-medium hover:border-theme-primary hover:text-theme-primary transition-all hover:scale-105">
-                  {t.hero.demo}
-                </button>
               </div>
               
-              {/* Quick stats */}
-              <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto animate-fadeInUp animation-delay-500">
+              {/* Before/After Images */}
+              <div className="grid md:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto mb-16 sm:mb-20">
                 <div className="text-center">
-                  <div className={`text-xl sm:text-2xl lg:text-3xl font-bold text-theme-primary ${isRTL ? 'arabic-numbers' : ''}`}>{t.hero.stats.customers}</div>
-                  <div className="text-xs sm:text-sm text-theme-text-light">{t.hero.stats.customersLabel}</div>
+                  <div className="relative aspect-[4/3] mb-4 rounded-2xl overflow-hidden bg-gray-100 shadow-lg">
+                    <Image
+                      src="/beforeafter/before embroidery-t-shirt.png"
+                      alt="Before embroidery"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <p className="text-base sm:text-lg text-gray-600 font-medium">Before</p>
                 </div>
                 <div className="text-center">
-                  <div className={`text-xl sm:text-2xl lg:text-3xl font-bold text-theme-primary ${isRTL ? 'arabic-numbers' : ''}`}>{t.hero.stats.delivery}</div>
-                  <div className="text-xs sm:text-sm text-theme-text-light">{t.hero.stats.deliveryLabel}</div>
+                  <div className="relative aspect-[4/3] mb-4 rounded-2xl overflow-hidden bg-gray-100 shadow-lg">
+                    <Image
+                      src="/beforeafter/after embroidery-t-shirt.png"
+                      alt="After embroidery"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <p className="text-base sm:text-lg text-gray-600 font-medium">After</p>
                 </div>
-                <div className="text-center">
-                  <div className={`text-xl sm:text-2xl lg:text-3xl font-bold text-theme-primary ${isRTL ? 'arabic-numbers' : ''}`}>{t.hero.stats.designs}</div>
-                  <div className="text-xs sm:text-sm text-theme-text-light">{t.hero.stats.designsLabel}</div>
-                </div>
+              </div>
+              
+              {/* Single Stat - Design Options */}
+              <div className="text-center">
+                <div className={`text-5xl sm:text-6xl lg:text-7xl font-bold text-black mb-2 ${isRTL ? 'arabic-numbers' : ''}`}>{t.hero.stats.designs}</div>
+                <div className="text-lg sm:text-xl text-gray-600 font-medium">{t.hero.stats.designsLabel}</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Showcase Section - Before/After */}
-      <section id="showcase" className="py-12 sm:py-20 bg-theme-surface">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <span className={`text-theme-primary font-semibold text-xs sm:text-sm uppercase tracking-wider ${isRTL ? 'tracking-wide' : ''}`}>{t.showcase.badge}</span>
-            <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-theme-text mt-2 mb-3 sm:mb-4 ${isRTL ? 'leading-normal' : ''}`}>{t.showcase.title}</h2>
-            <p className={`text-base sm:text-lg lg:text-xl text-theme-text-light ${isRTL ? 'leading-relaxed' : ''}`}>{t.showcase.subtitle}</p>
+      {/* How It Works Section */}
+      <section id="how-it-works" className="py-16 sm:py-24 bg-gradient-to-b from-theme-surface to-theme-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <span className={`text-theme-primary font-semibold text-xs sm:text-sm uppercase tracking-wider ${isRTL ? 'tracking-wide' : ''}`}>{t.howItWorks.badge}</span>
+            <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-theme-text mt-2 mb-3 sm:mb-4 ${isRTL ? 'leading-normal' : ''}`}>{t.howItWorks.title}</h2>
+            <p className={`text-base sm:text-lg lg:text-xl text-theme-text-light max-w-2xl mx-auto ${isRTL ? 'leading-relaxed' : ''}`}>{t.howItWorks.subtitle}</p>
           </div>
-          
-          {/* Before/After Slider */}
-          <div className="relative max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-theme-primary to-theme-accent2 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                <div className="relative bg-white rounded-2xl p-2 shadow-2xl">
-                  <div className="text-center mb-2">
-                    <span className="text-sm font-semibold text-gray-500 uppercase">{t.showcase.before}</span>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+            {/* Step 1 */}
+            <div className="relative group animate-fadeInUp" style={{ animationDelay: '0ms' }}>
+              <div className="flex flex-col items-center text-center">
+                {/* Step number */}
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-theme-primary text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10">
+                  {isRTL ? '١' : '1'}
+                </div>
+
+                {/* Icon container */}
+                <div className="w-full bg-theme-surface rounded-2xl p-8 sm:p-10 pt-12 sm:pt-14 shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:scale-105 border border-theme-border">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 bg-gradient-to-br from-theme-primary to-theme-accent rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <ShoppingBag className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                   </div>
-                  <div className="relative aspect-square rounded-xl overflow-hidden">
-                    <Image
-                      src={showcaseImages[currentBeforeAfter].before}
-                      alt="Before embroidery"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+
+                  <h3 className={`text-xl sm:text-2xl font-bold text-theme-text mb-3 ${isRTL ? 'leading-normal' : ''}`}>{t.howItWorks.step1Title}</h3>
+                  <p className={`text-theme-text-light text-sm sm:text-base ${isRTL ? 'leading-relaxed' : ''}`}>{t.howItWorks.step1Desc}</p>
                 </div>
               </div>
-              
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-theme-accent2 to-theme-accent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                <div className="relative bg-white rounded-2xl p-2 shadow-2xl">
-                  <div className="text-center mb-2">
-                    <span className="text-sm font-semibold text-theme-primary uppercase">{t.showcase.after}</span>
-                  </div>
-                  <div className="relative aspect-square rounded-xl overflow-hidden">
-                    <Image
-                      src={showcaseImages[currentBeforeAfter].after}
-                      alt="After embroidery"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <p className="text-white font-semibold text-lg drop-shadow-lg">{showcaseImages[currentBeforeAfter].title}</p>
-                      <p className="text-white/90 text-sm drop-shadow">{showcaseImages[currentBeforeAfter].description}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Animated arrow */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-              <div className="bg-theme-surface rounded-full p-3 shadow-lg animate-pulse">
-                <svg className="w-8 h-8 text-theme-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+
+              {/* Arrow connector - hidden on mobile, visible on md+ */}
+              <div className={`hidden md:block absolute top-24 ${isRTL ? 'right-0' : 'left-full'} w-12 text-theme-primary`}>
+                <svg className={`w-12 h-12 ${isRTL ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </div>
             </div>
-          </div>
-          
-          {/* Features Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mt-8 sm:mt-16">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className="text-center p-3 sm:p-6 rounded-2xl hover:bg-theme-primary/10 transition-all hover:scale-105 animate-fadeInUp"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="text-2xl sm:text-3xl lg:text-4xl mb-2 sm:mb-3">{feature.icon}</div>
-                <h3 className="font-semibold text-theme-text mb-1 text-sm sm:text-base">{feature.title}</h3>
-                <p className="text-xs sm:text-sm text-theme-text-light">{feature.description}</p>
+
+            {/* Step 2 */}
+            <div className="relative group animate-fadeInUp" style={{ animationDelay: '100ms' }}>
+              <div className="flex flex-col items-center text-center">
+                {/* Step number */}
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-theme-primary text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10">
+                  {isRTL ? '٢' : '2'}
+                </div>
+
+                {/* Icon container */}
+                <div className="w-full bg-theme-surface rounded-2xl p-8 sm:p-10 pt-12 sm:pt-14 shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:scale-105 border border-theme-border">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 bg-gradient-to-br from-theme-primary to-theme-accent rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                  </div>
+
+                  <h3 className={`text-xl sm:text-2xl font-bold text-theme-text mb-3 ${isRTL ? 'leading-normal' : ''}`}>{t.howItWorks.step2Title}</h3>
+                  <p className={`text-theme-text-light text-sm sm:text-base ${isRTL ? 'leading-relaxed' : ''}`}>{t.howItWorks.step2Desc}</p>
+                </div>
               </div>
-            ))}
+
+              {/* Arrow connector */}
+              <div className={`hidden md:block absolute top-24 ${isRTL ? 'right-0' : 'left-full'} w-12 text-theme-primary`}>
+                <svg className={`w-12 h-12 ${isRTL ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="relative group animate-fadeInUp" style={{ animationDelay: '200ms' }}>
+              <div className="flex flex-col items-center text-center">
+                {/* Step number */}
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-theme-primary text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10">
+                  {isRTL ? '٣' : '3'}
+                </div>
+
+                {/* Icon container */}
+                <div className="w-full bg-theme-surface rounded-2xl p-8 sm:p-10 pt-12 sm:pt-14 shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:scale-105 border border-theme-border">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 bg-gradient-to-br from-theme-primary to-theme-accent rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <Package className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                  </div>
+
+                  <h3 className={`text-xl sm:text-2xl font-bold text-theme-text mb-3 ${isRTL ? 'leading-normal' : ''}`}>{t.howItWorks.step3Title}</h3>
+                  <p className={`text-theme-text-light text-sm sm:text-base ${isRTL ? 'leading-relaxed' : ''}`}>{t.howItWorks.step3Desc}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="text-center mt-12 sm:mt-16">
+            <a
+              href="/design"
+              className="inline-block bg-gradient-to-r from-theme-primary to-theme-accent text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:scale-105 transition-all shadow-lg hover:shadow-xl"
+            >
+              {t.hero.cta}
+            </a>
           </div>
         </div>
       </section>
@@ -304,22 +326,11 @@ export default function Home() {
             ))}
           </div>
           
-          <div className="text-center mt-12">
-            <a 
-              href="/design"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-theme-primary to-theme-accent2 text-white rounded-full text-lg font-semibold transform transition-all hover:scale-105 shadow-2xl hover:shadow-theme-primary/25"
-            >
-              {t.gallery.cta}
-              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-          </div>
         </div>
       </section>
 
       {/* For Brands Section */}
-      <section id="brands" className="py-20 bg-gradient-to-br from-theme-secondary via-theme-primary to-theme-accent2 text-white relative overflow-hidden">
+      <section id="brands" className="py-20 bg-theme-primary text-white relative overflow-hidden">
         {/* Animated background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -337,31 +348,34 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: "📈",
+                icon: TrendingUp,
                 title: t.brands.revenue,
                 description: t.brands.revenueDesc
               },
               {
-                icon: "🚀",
+                icon: DollarSign,
                 title: t.brands.investment,
                 description: t.brands.investmentDesc
               },
               {
-                icon: "🎯",
+                icon: Star,
                 title: t.brands.standOut,
                 description: t.brands.standOutDesc
               }
-            ].map((item, index) => (
-              <div 
-                key={index}
-                className="bg-theme-surface/10 backdrop-blur-sm rounded-2xl p-8 border border-theme-surface/20 hover:bg-theme-surface/20 transition-all hover:scale-105 animate-fadeInUp"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="text-5xl mb-4">{item.icon}</div>
-                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-                <p className="text-theme-surface/90">{item.description}</p>
-              </div>
-            ))}
+            ].map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <div 
+                  key={index}
+                  className="bg-theme-surface/10 backdrop-blur-sm rounded-2xl p-8 border border-theme-surface/20 hover:bg-theme-surface/20 transition-all hover:scale-105 animate-fadeInUp"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <IconComponent className="w-12 h-12 text-white mb-4" />
+                  <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-theme-surface/90">{item.description}</p>
+                </div>
+              );
+            })}
           </div>
           
           <div className="text-center mt-12">

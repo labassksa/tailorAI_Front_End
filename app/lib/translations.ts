@@ -15,7 +15,6 @@ export interface Translations {
     subtitle: string;
     process: string;
     cta: string;
-    demo: string;
     stats: {
       customers: string;
       customersLabel: string;
@@ -47,6 +46,17 @@ export interface Translations {
     title: string;
     subtitle: string;
     cta: string;
+  };
+  howItWorks: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    step1Title: string;
+    step1Desc: string;
+    step2Title: string;
+    step2Desc: string;
+    step3Title: string;
+    step3Desc: string;
   };
   brands: {
     badge: string;
@@ -109,12 +119,11 @@ export const translations: Record<Language, Translations> = {
       designOrder: 'Design & Order'
     },
     hero: {
-      title1: 'One Prompt.',
-      title2: 'Infinite Possibilities.',
-      subtitle: 'Transform any garment into a personalized masterpiece with AI-powered embroidery',
+      title1: 'Stay Unique.',
+      title2: 'By you, For you.',
+      subtitle: 'Describe what you want, and we\'ll make it happen.',
       process: '✨ Type your idea → See it designed → Get it delivered',
       cta: 'Create Your Design Now',
-      demo: 'Watch Demo →',
       stats: {
         customers: '1000+',
         customersLabel: 'Happy Customers',
@@ -147,10 +156,21 @@ export const translations: Record<Language, Translations> = {
       subtitle: 'Each design started with just a simple text prompt',
       cta: 'Create Your Own Design'
     },
+    howItWorks: {
+      badge: 'How It Works',
+      title: 'Three Simple Steps',
+      subtitle: 'From idea to delivery in just a few clicks',
+      step1Title: 'Select a Product',
+      step1Desc: 'Browse our collection and choose your favorite garment',
+      step2Title: 'Design with AI',
+      step2Desc: 'Describe your vision and let our AI create the perfect embroidery design',
+      step3Title: 'Buy & Receive',
+      step3Desc: 'Place your order and get your custom embroidered product delivered to your door'
+    },
     brands: {
       badge: 'For Brands',
-      title: 'Grow Your Abaya Business',
-      subtitle: 'Partner with us to offer AI-powered customization',
+      title: 'Grow Your Fashion Business',
+      subtitle: 'Partner with us to offer AI-powered embroidery customization',
       revenue: 'Increase Revenue',
       revenueDesc: 'Add 30-50% premium on custom embroidered pieces',
       investment: 'Zero Investment',
@@ -206,12 +226,11 @@ export const translations: Record<Language, Translations> = {
       designOrder: 'صمم واطلب'
     },
     hero: {
-      title1: 'فكرة واحدة',
-      title2: 'عباءة مميزة',
-      subtitle: 'اشتري عباءتك الخاصة بتطريز شخصي مميز بخطوات بسيطة',
+      title1: 'كوني مميزة.',
+      title2: 'منك وإليك.',
+      subtitle: 'اوصفي ما تريدين ونحن سنحققه لك.',
       process: 'اكتبي فكرتك → شاهدي التصميم → اشتري الآن',
       cta: 'ابدأي التصميم الآن',
-      demo: 'شاهدي أمثلة ←',
       stats: {
         customers: '١٠٠٠+',
         customersLabel: 'عميلة سعيدة',
@@ -244,10 +263,21 @@ export const translations: Record<Language, Translations> = {
       subtitle: 'كل تصميم بدأ بفكرة بسيطة من عميلة مثلك - والآن دورك!',
       cta: 'صممي عباءتك الآن'
     },
+    howItWorks: {
+      badge: 'كيف يعمل',
+      title: 'ثلاث خطوات بسيطة',
+      subtitle: 'من الفكرة إلى التوصيل في دقائق',
+      step1Title: 'اختاري المنتج',
+      step1Desc: 'تصفحي مجموعتنا واختاري القطعة المفضلة لديك',
+      step2Title: 'صممي بالذكاء الاصطناعي',
+      step2Desc: 'صفي رؤيتك ودعي الذكاء الاصطناعي يصمم التطريز المثالي',
+      step3Title: 'اشتري واستلمي',
+      step3Desc: 'اطلبي الآن واحصلي على منتجك المطرز حسب الطلب حتى باب منزلك'
+    },
     brands: {
       badge: 'للعلامات التجارية',
-      title: 'اجعلي متجرك مميزاً',
-      subtitle: 'قدمي لعميلاتك خدمة التطريز المخصص بسهولة',
+      title: 'نمي أعمال الأزياء الخاصة بك',
+      subtitle: 'اشتركي معنا لتقديم خدمة التطريز المخصص بالذكاء الاصطناعي',
       revenue: 'زيادة الأرباح',
       revenueDesc: 'ربح إضافي ٣٠-٥٠٪ من القطع المطرزة',
       investment: 'بلا تكاليف إضافية',
