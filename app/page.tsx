@@ -120,64 +120,150 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Apple-inspired */}
-      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center">
+      {/* Hero Section - Redesigned with Emphasis */}
+      <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-theme-surface via-white to-theme-background overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-theme-primary/5 rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-theme-accent/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto">
+          {/* Text Content */}
+          <div className={`text-center mb-12 sm:mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-theme-primary/10 to-theme-accent/10 border border-theme-primary/20 rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8 animate-fadeInUp">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-theme-primary" />
+              <span className="text-xs sm:text-sm font-semibold text-theme-primary uppercase tracking-wide">
+                {t.howItWorks.badge}
+              </span>
+            </div>
+
             {/* Main Headlines */}
-            <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <h1 className={`text-3xl sm:text-5xl lg:text-6xl font-light text-gray-800 mb-1 sm:mb-2 leading-tight tracking-tight hero-title ${isRTL ? 'text-center' : 'text-center'}`}>
-                {t.hero.title1}
-              </h1>
-              <h2 className={`text-xl sm:text-2xl lg:text-3xl font-light text-gray-500 mb-4 sm:mb-6 leading-tight tracking-tight ${isRTL ? 'text-center' : 'text-center'}`}>
-                {t.hero.title2}
-              </h2>
-              
-              {/* Subtitle */}
-              <p className={`text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8 sm:mb-10 max-w-4xl mx-auto font-light leading-normal ${isRTL ? 'leading-relaxed' : ''}`}>
-                {t.hero.subtitle}
+            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-theme-text mb-4 sm:mb-6 leading-tight tracking-tight hero-title bg-gradient-to-r from-theme-text via-theme-primary to-theme-accent bg-clip-text ${isRTL ? 'text-center' : 'text-center'}`}>
+              {t.hero.title1}
+            </h1>
+            <h2 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-theme-text-light mb-6 sm:mb-8 leading-tight tracking-tight ${isRTL ? 'text-center' : 'text-center'}`}>
+              {t.hero.title2}
+            </h2>
+
+            {/* Subtitle */}
+            <p className={`text-base sm:text-lg md:text-xl lg:text-2xl text-theme-text-light mb-10 sm:mb-12 max-w-4xl mx-auto font-normal leading-relaxed ${isRTL ? 'leading-loose' : ''}`}>
+              {t.hero.subtitle}
+            </p>
+
+            {/* CTA Button */}
+            <div className="flex justify-center mb-16 sm:mb-20">
+              <a
+                href="/design"
+                className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-theme-primary to-theme-accent text-white px-10 sm:px-12 py-4 sm:py-5 rounded-full text-base sm:text-lg font-bold transition-all duration-300 shadow-2xl hover:shadow-theme-primary/50 hover:scale-105 animate-float"
+              >
+                <Sparkles className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
+                <span>{t.hero.cta}</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Before/After Images - Featured Section */}
+          <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            {/* Section Header */}
+            <div className="text-center mb-8 sm:mb-12">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-theme-text mb-3 sm:mb-4">
+                See The Magic
+              </h3>
+              <p className="text-base sm:text-lg text-theme-text-light max-w-2xl mx-auto">
+                Transform ordinary garments into extraordinary pieces with AI-powered embroidery
               </p>
-              
-              {/* CTA Button */}
-              <div className="flex justify-center mb-16 sm:mb-20">
-                <a 
-                  href="/design"
-                  className="bg-theme-primary hover:bg-theme-primary-dark text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-xl"
-                >
-                  {t.hero.cta}
-                </a>
-              </div>
-              
-              {/* Before/After Images */}
-              <div className="grid md:grid-cols-2 gap-8 sm:gap-12 max-w-5xl mx-auto mb-16 sm:mb-20">
-                <div className="text-center">
-                  <div className="relative aspect-[4/3] mb-4 rounded-2xl overflow-hidden bg-gray-100 shadow-lg">
-                    <Image
-                      src="/beforeafter/before embroidery-t-shirt.png"
-                      alt="Before embroidery"
-                      fill
-                      className="object-cover"
-                    />
+            </div>
+
+            {/* Before/After Comparison */}
+            <div className="relative max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-6 sm:gap-10 lg:gap-16">
+                {/* Before Image */}
+                <div className="group relative animate-fadeInUp" style={{ animationDelay: '400ms' }}>
+                  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-gray-100 to-gray-200 p-1 shadow-2xl transition-all duration-500 hover:shadow-theme-primary/20 hover:scale-[1.02]">
+                    <div className="relative aspect-[3/4] rounded-3xl overflow-hidden bg-white">
+                      <Image
+                        src="/beforeafter/before embroidery-t-shirt.png"
+                        alt="Before embroidery"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      {/* Overlay label */}
+                      <div className="absolute top-4 left-4 bg-gray-900/90 backdrop-blur-sm text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-base shadow-lg">
+                        Before
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-base sm:text-lg text-gray-600 font-medium">Before</p>
+                  <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-gray-200/50 rounded-full blur-2xl -z-10"></div>
                 </div>
-                <div className="text-center">
-                  <div className="relative aspect-[4/3] mb-4 rounded-2xl overflow-hidden bg-gray-100 shadow-lg">
-                    <Image
-                      src="/beforeafter/after embroidery-t-shirt.png"
-                      alt="After embroidery"
-                      fill
-                      className="object-cover"
-                    />
+
+                {/* Arrow/VS Indicator - Desktop */}
+                <div className="hidden md:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div className="bg-gradient-to-r from-theme-primary to-theme-accent text-white w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl shadow-2xl animate-pulse-slow border-4 border-white">
+                    →
                   </div>
-                  <p className="text-base sm:text-lg text-gray-600 font-medium">After</p>
+                </div>
+
+                {/* VS Indicator - Mobile */}
+                <div className="md:hidden flex justify-center -my-3 z-20">
+                  <div className="bg-gradient-to-r from-theme-primary to-theme-accent text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-base shadow-xl animate-pulse-slow border-4 border-white">
+                    ↓
+                  </div>
+                </div>
+
+                {/* After Image */}
+                <div className="group relative animate-fadeInUp" style={{ animationDelay: '600ms' }}>
+                  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-theme-primary/20 to-theme-accent/20 p-1 shadow-2xl transition-all duration-500 hover:shadow-theme-accent/30 hover:scale-[1.02]">
+                    <div className="relative aspect-[3/4] rounded-3xl overflow-hidden bg-white">
+                      <Image
+                        src="/beforeafter/after embroidery-t-shirt.png"
+                        alt="After embroidery"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      {/* Overlay label */}
+                      <div className="absolute top-4 right-4 bg-gradient-to-r from-theme-primary to-theme-accent text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-base shadow-lg flex items-center gap-2">
+                        <Sparkles className="w-4 h-4" />
+                        After
+                      </div>
+                      {/* Corner badge */}
+                      <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-2xl p-3 sm:p-4 shadow-lg transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p className="text-xs sm:text-sm font-semibold text-theme-primary text-center">
+                          ✨ AI-Generated Embroidery Design
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-theme-primary/20 rounded-full blur-2xl -z-10"></div>
                 </div>
               </div>
-              
-              {/* Single Stat - Design Options */}
-              <div className="text-center">
-                <div className={`text-5xl sm:text-6xl lg:text-7xl font-bold text-black mb-2 ${isRTL ? 'arabic-numbers' : ''}`}>{t.hero.stats.designs}</div>
-                <div className="text-lg sm:text-xl text-gray-600 font-medium">{t.hero.stats.designsLabel}</div>
+            </div>
+
+            {/* Stats Section */}
+            <div className="mt-16 sm:mt-24 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
+              <div className="text-center p-6 sm:p-8 bg-theme-surface/50 backdrop-blur-sm rounded-2xl border border-theme-border shadow-lg hover:shadow-xl transition-all hover:scale-105 animate-fadeInUp" style={{ animationDelay: '800ms' }}>
+                <div className={`text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-theme-primary to-theme-accent bg-clip-text text-transparent mb-2 ${isRTL ? 'arabic-numbers' : ''}`}>
+                  {t.hero.stats.designs}
+                </div>
+                <div className="text-sm sm:text-base lg:text-lg text-theme-text-light font-semibold">{t.hero.stats.designsLabel}</div>
+              </div>
+
+              <div className="text-center p-6 sm:p-8 bg-theme-surface/50 backdrop-blur-sm rounded-2xl border border-theme-border shadow-lg hover:shadow-xl transition-all hover:scale-105 animate-fadeInUp" style={{ animationDelay: '900ms' }}>
+                <div className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-theme-primary to-theme-accent bg-clip-text text-transparent mb-2">
+                  24/7
+                </div>
+                <div className="text-sm sm:text-base lg:text-lg text-theme-text-light font-semibold">Instant Generation</div>
+              </div>
+
+              <div className="text-center p-6 sm:p-8 bg-theme-surface/50 backdrop-blur-sm rounded-2xl border border-theme-border shadow-lg hover:shadow-xl transition-all hover:scale-105 animate-fadeInUp" style={{ animationDelay: '1000ms' }}>
+                <div className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-theme-primary to-theme-accent bg-clip-text text-transparent mb-2">
+                  100%
+                </div>
+                <div className="text-sm sm:text-base lg:text-lg text-theme-text-light font-semibold">Unique Designs</div>
               </div>
             </div>
           </div>
